@@ -30,6 +30,10 @@ class SGBaseLayer: CALayer {
     public var gaugeMaxValue: CGFloat = 360.0 {
         didSet { updateUI() }
     }
+    
+    public var gaugeMinValue: CGFloat = 0.0 {
+        didSet { updateUI() }
+    }
 
     public var rangesList: [SGRanges] = [] {
         didSet {  updateUI() }
@@ -39,11 +43,11 @@ class SGBaseLayer: CALayer {
     internal func updateUI() {}
 
     internal func angleForValue(_ value: CGFloat) -> CGFloat {
-        let laregstAngle = gaugeMaxValue
+        let largestAngle = gaugeMaxValue
         let gaugeMeterOffset = gaugeAngle * 2.0
         
         let totalAngle = 360 - gaugeMeterOffset
-        let convertedAngle = totalAngle * value / laregstAngle
+        let convertedAngle = totalAngle * (value - gaugeMinValue) / largestAngle
         return convertedAngle
     }
 

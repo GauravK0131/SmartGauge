@@ -1,5 +1,5 @@
 PODS:
-  - SmartGauge (0.6.3)
+  - SmartGauge (0.6.6)
 
 DEPENDENCIES:
   - SmartGauge (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SmartGauge: a6a0a986ac8f4e0afe4d0415b711c5692fd65f7e
+  SmartGauge: 4a730c6d28636f798555592857571c4e43e14a23
 
 PODFILE CHECKSUM: 241b3950891319044078483b53aaa32bcce909b1
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.2
