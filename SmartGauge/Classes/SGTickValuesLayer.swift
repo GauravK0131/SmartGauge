@@ -50,7 +50,7 @@ class SGTickValuesLayer: SGBaseLayer {
 
         for index in 0..<(labelsCount+1) {
             
-            let floatValue = gaugeMinValue + (((maxRangeValue*CGFloat(index))/CGFloat(labelsCount)).rounded(2))
+            let floatValue = gaugeMinValue + (((maxRangeValue*CGFloat(index))/CGFloat(labelsCount)).rounded(2) + CGFloat(index))
             var displayValue = "\(floatValue)"
             
             if floor(floatValue) == floatValue {
