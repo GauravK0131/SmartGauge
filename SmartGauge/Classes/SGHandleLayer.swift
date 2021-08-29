@@ -54,6 +54,7 @@ class SGHandleLayer: SGBaseLayer {
         arrowLayer = CAShapeLayer()
         arrowLayer?.strokeColor = trackColor.cgColor
         arrowLayer?.fillColor = trackColor.cgColor
+        arrowLayer?.opacity = 0.2
         arrowLayer?.lineCap = .round
         
         let path = CGMutablePath()
