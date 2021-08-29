@@ -86,7 +86,7 @@ class SGTickLayer: SGBaseLayer {
                 
                 let transform = CGAffineTransform(rotationAngle: (CGFloat(tickValue) + 90.0 + gaugeAngle).deg2rad())
                 tickScalesPath.addPath(linePath, transform: transform)
-            } else { return }
+            }
         }
 
 
