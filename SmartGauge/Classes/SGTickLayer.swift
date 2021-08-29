@@ -79,12 +79,14 @@ class SGTickLayer: SGBaseLayer {
         for tickValue in minorTickValuesArray {
             let linePath = CGMutablePath()
 
-            linePath.move(to: CGPoint(x: radius - radius/4.0 + radius/30.0, y: 0.0))
-
-            linePath.addLine(to: CGPoint(x: radius - radius/4.0 + radius/15.0, y: 0.0))
-
-            let transform = CGAffineTransform(rotationAngle: (CGFloat(tickValue) + 90.0 + gaugeAngle).deg2rad())
-            tickScalesPath.addPath(linePath, transform: transform)
+            if tickValue != 0 && tickValue.truncatingRemainder(dividingBy: 9) != 0 {
+                linePath.move(to: CGPoint(x: radius - radius/4.0 + radius/30.0, y: 0.0))
+                
+                linePath.addLine(to: CGPoint(x: radius - radius/4.0 + radius/15.0, y: 0.0))
+                
+                let transform = CGAffineTransform(rotationAngle: (CGFloat(tickValue) + 90.0 + gaugeAngle).deg2rad())
+                tickScalesPath.addPath(linePath, transform: transform)
+            } else { return }
         }
 
 
