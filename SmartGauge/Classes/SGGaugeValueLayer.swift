@@ -99,7 +99,7 @@ class SGGaugeValueLayer: SGBaseLayer {
         var yVal: CGFloat =  0.0
         let referenceVal = textLayer?.frame.origin.y ?? bounds.height
         if gaugeType == .gauge {
-            yVal = referenceVal - size.height - radius / 4
+            yVal = referenceVal - size.height
         } else {
             yVal = (referenceVal - size.height)
         }
