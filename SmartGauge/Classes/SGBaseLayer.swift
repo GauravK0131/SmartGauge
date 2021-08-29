@@ -54,6 +54,16 @@ class SGBaseLayer: CALayer {
         let convertedAngle = totalAngle * (value - gaugeMinValue) / largestAngle
         return convertedAngle
     }
+    
+    internal func trackAngleForValue(_ value: CGFloat) -> CGFloat {
+        let largestAngle = gaugeMaxValue
+        let gaugeMeterOffset = gaugeAngle * 2.0
+                
+        let totalAngle = 360 - gaugeMeterOffset
+        let convertedAngle = totalAngle * value / largestAngle
+        return convertedAngle
+    }
+
 
 }
 

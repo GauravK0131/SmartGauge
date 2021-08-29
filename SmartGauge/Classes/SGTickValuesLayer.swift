@@ -48,7 +48,7 @@ class SGTickValuesLayer: SGBaseLayer {
         guard devider > 0 else { return }
         let labelsCount = Int(maxRangeValue/devider)
 
-        for index in 0..<(labelsCount) {
+        for index in 0..<(labelsCount+1) {
             
             let floatValue = gaugeMinValue + (((maxRangeValue*CGFloat(index))/CGFloat(labelsCount)).rounded(2))
             var displayValue = "\(floatValue)"

@@ -114,7 +114,7 @@ class SGTrackLayer: SGBaseLayer {
 
         for (_, range) in rangesList.enumerated() {
 
-            let convertedValue = angleForValue(range.toValue - range.fromValue).deg2rad()
+            let convertedValue = trackAngleForValue(range.toValue - range.fromValue).deg2rad()
             let endAngle = startAngle + convertedValue
 
             let path = UIBezierPath(arcCenter: center, radius: rangeRadius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
