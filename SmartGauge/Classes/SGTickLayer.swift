@@ -47,7 +47,7 @@ class SGTickLayer: SGBaseLayer {
         var majorTickValuesArray: [Int] = []
 
         for tickNumber in 0...numberOfMajorTicks {
-            let val = gaugeMinValue + (((gaugeMaxValue*CGFloat(tickNumber))/CGFloat(numberOfMajorTicks)).rounded(2))
+            let val = gaugeMinValue + (((gaugeMaxValue*CGFloat(tickNumber))/CGFloat(numberOfMajorTicks)).rounded(2) + CGFloat(tickNumber))
             let finalTickVal = angleForValue(CGFloat(val))
             majorTickValuesArray.append(Int(finalTickVal))
         }
