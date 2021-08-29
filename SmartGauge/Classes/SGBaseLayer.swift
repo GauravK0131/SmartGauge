@@ -31,6 +31,10 @@ class SGBaseLayer: CALayer {
         didSet { updateUI() }
     }
     
+    public var gaugeMax: CGFloat = 100.0 {
+        didSet { updateUI() }
+    }
+    
     public var gaugeMinValue: CGFloat = 0.0 {
         didSet { updateUI() }
     }

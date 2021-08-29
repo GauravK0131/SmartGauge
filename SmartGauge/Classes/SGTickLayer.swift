@@ -43,24 +43,32 @@ class SGTickLayer: SGBaseLayer {
         
 
 //        let maxRangeValue = Int(gaugeMaxValue)
-        let divider = gaugeMaxValue / CGFloat(numberOfMajorTicks)
+//        let divider = gaugeMaxValue / CGFloat(numberOfMajorTicks)
         var majorTickValuesArray: [Int] = []
 
-        for tickNumber in 0...numberOfMajorTicks {
-            let val = CGFloat(tickNumber) * divider
+        for tickNumber in 0..<numberOfMajorTicks {
+            let val = gaugeMinValue + (((gaugeMaxValue*CGFloat(tickNumber))/CGFloat(numberOfMajorTicks)).rounded(2) +  CGFloat(tickNumber))
             let finalTickVal = angleForValue(CGFloat(val))
             majorTickValuesArray.append(Int(finalTickVal))
         }
         
         // Calculate minor ticks
-        let totalNumberOfMinorTicks = (majorTickValuesArray.count - 1) * (numberOfMinorTicks + 1)
-        let minorDivider = gaugeMaxValue / CGFloat(totalNumberOfMinorTicks)
+        let totalNumberOfMinorTicks = (majorTickValuesArray.count - 1) * (numberOfMinorTicks)
+//        let minorDivider = gaugeMaxValue / CGFloat(totalNumberOfMinorTicks)
         var minorTickValuesArray: [CGFloat] = []
         
-        for tickNumber in 0...totalNumberOfMinorTicks {
-            let val = CGFloat(tickNumber) * minorDivider
-            let finalTickVal = angleForValue(CGFloat(val))
-            minorTickValuesArray.append(finalTickVal)
+        var majorTickReached: Int = 0
+        for tickNumber in 0..<totalNumberOfMinorTicks {
+            if tickNumber % numberOfMinorTicks == 0 {
+                majorTickReached = majorTickReached + 1
+                let val = gaugeMinValue + (CGFloat(tickNumber) + 1 + CGFloat(majorTickReached))
+                let finalTickVal = angleForValue(CGFloat(val))
+                minorTickValuesArray.append(finalTickVal)
+            } else {
+                let val = gaugeMinValue + (CGFloat(tickNumber) + 1 + CGFloat(majorTickReached))
+                let finalTickVal = angleForValue(CGFloat(val))
+                minorTickValuesArray.append(finalTickVal)
+            }
         }
 
         let tickScalesPath = CGMutablePath()

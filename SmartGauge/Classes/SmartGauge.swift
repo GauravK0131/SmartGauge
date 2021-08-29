@@ -124,6 +124,10 @@ public class SmartGauge: UIView {
     public var gaugeMinValue: CGFloat = 0.0 {
         didSet { updateUI() }
     }
+    
+    public var gaugeMax: CGFloat = 100.0 {
+        didSet { updateUI() }
+    }
 
     public var gaugeAngle: CGFloat = 60.0 {
         didSet { updateUI() }
@@ -269,6 +273,7 @@ public class SmartGauge: UIView {
         trackLayer?.gaugeAngle = gaugeAngle
         trackLayer?.gaugeValue = gaugeValue
         trackLayer?.gaugeMaxValue = gaugeMaxValue
+        trackLayer?.gaugeMax = gaugeMax
         trackLayer?.gaugeMinValue = gaugeMinValue
         trackLayer?.gaugeTrackWidth = gaugeTrackWidth
         trackLayer?.gaugeValueTrackWidth = gaugeValueTrackWidth
@@ -286,7 +291,8 @@ public class SmartGauge: UIView {
         tickLayer?.gaugeAngle = gaugeAngle
         tickLayer?.gaugeValue = gaugeValue
         tickLayer?.gaugeMaxValue = gaugeMaxValue
-        trackLayer?.gaugeMinValue = gaugeMinValue
+        tickLayer?.gaugeMax = gaugeMax
+        tickLayer?.gaugeMinValue = gaugeMinValue
         tickLayer?.numberOfMajorTicks = numberOfMajorTicks
         tickLayer?.numberOfMinorTicks = numberOfMinorTicks
         tickLayer?.tickColor = tickColor
@@ -300,7 +306,8 @@ public class SmartGauge: UIView {
         tickValuesLayer?.gaugeAngle = gaugeAngle
         tickValuesLayer?.gaugeValue = gaugeValue
         tickValuesLayer?.gaugeMaxValue = gaugeMaxValue
-        trackLayer?.gaugeMinValue = gaugeMinValue
+        tickValuesLayer?.gaugeMax = gaugeMax
+        tickValuesLayer?.gaugeMinValue = gaugeMinValue
         tickValuesLayer?.numberOfMajorTicks = numberOfMajorTicks
         tickValuesLayer?.coveredTickValueColor = coveredTickValueColor
         tickValuesLayer?.uncoveredTickValueColor = uncoveredTickValueColor
@@ -316,7 +323,9 @@ public class SmartGauge: UIView {
         selectedValueLayer?.gaugeAngle = gaugeAngle
         selectedValueLayer?.gaugeValue = gaugeValue
         selectedValueLayer?.gaugeMaxValue = gaugeMaxValue
-        trackLayer?.gaugeMinValue = gaugeMinValue
+        selectedValueLayer?.gaugeMax = gaugeMax
+
+        selectedValueLayer?.gaugeMinValue = gaugeMinValue
         selectedValueLayer?.numberOfMajorTicks = numberOfMajorTicks
         selectedValueLayer?.decimalPlaces = decimalPlaces
         selectedValueLayer?.valueTextColor = valueTextColor
@@ -334,7 +343,8 @@ public class SmartGauge: UIView {
         handleLayer?.gaugeAngle = gaugeAngle
         handleLayer?.gaugeValue = gaugeValue
         handleLayer?.gaugeMaxValue = gaugeMaxValue
-        trackLayer?.gaugeMinValue = gaugeMinValue
+        handleLayer?.gaugeMax = gaugeMax
+        handleLayer?.gaugeMinValue = gaugeMinValue
         handleLayer?.numberOfMajorTicks = numberOfMajorTicks
         handleLayer?.rangesList = rangesList
         handleLayer.map { gaugeHolderLayer.addSublayer($0) }
